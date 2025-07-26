@@ -1,0 +1,143 @@
+.featured-info {
+  position: relative;
+}
+
+.featured-info__container {
+  align-items: center;
+  gap: 3rem;
+}
+
+@media screen and (min-width: 750px) {
+  .featured-info__container {
+    gap: 4rem;
+  }
+}
+
+.featured-info__container--reverse {
+  direction: rtl;
+}
+
+.featured-info__container--reverse > * {
+  direction: ltr;
+}
+
+.featured-info__media {
+  position: relative;
+}
+
+.featured-info__image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+}
+
+.featured-info__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.4rem;
+}
+
+.featured-info__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.featured-info__text-content {
+  max-width: 100%;
+}
+
+@media screen and (min-width: 750px) {
+  .featured-info__text-content {
+    max-width: 90%;
+  }
+}
+
+.featured-info__subheading {
+  margin: 0 0 1rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(var(--color-foreground), 0.75);
+}
+
+.featured-info__heading {
+  margin: 0 0 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.featured-info__heading.h2 {
+  font-size: 2.4rem;
+}
+
+.featured-info__heading.h1 {
+  font-size: 3.2rem;
+}
+
+.featured-info__heading.h0 {
+  font-size: 4rem;
+}
+
+.featured-info__heading.hxl {
+  font-size: 4.8rem;
+}
+
+@media screen and (max-width: 749px) {
+  .featured-info__heading.h2 {
+    font-size: 2rem;
+  }
+  
+  .featured-info__heading.h1 {
+    font-size: 2.8rem;
+  }
+  
+  .featured-info__heading.h0 {
+    font-size: 3.2rem;
+  }
+  
+  .featured-info__heading.hxl {
+    font-size: 3.6rem;
+  }
+}
+
+.featured-info__description {
+  margin: 0 0 2rem;
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: rgba(var(--color-foreground), 0.8);
+}
+
+.featured-info__description p {
+  margin: 0 0 1rem;
+}
+
+.featured-info__description p:last-child {
+  margin-bottom: 0;
+}
+
+.featured-info__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.featured-info__buttons .button {
+  min-width: 12rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 749px) {
+  .featured-info__buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .featured-info__buttons .button {
+    width: 100%;
+  }
+} 
