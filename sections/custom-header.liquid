@@ -1,0 +1,162 @@
+{%- style -%}
+  .custom-header {
+    background: #ffffff;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  .custom-header__announcement-bar {
+    background: #8B4513;
+    color: #ffffff;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .custom-header__main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .custom-header__logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #8B4513;
+  }
+
+  .custom-header__logo-icon {
+    font-size: 32px;
+    font-weight: 400;
+    margin-right: 12px;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .custom-header__logo-text {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .custom-header__nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .custom-header__nav-link {
+    color: #333333;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .custom-header__nav-link:hover {
+    color: #8B4513;
+  }
+
+  .custom-header__utility {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .custom-header__utility-link {
+    color: #333333;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .custom-header__utility-link:hover {
+    color: #8B4513;
+  }
+
+  @media screen and (max-width: 768px) {
+    .custom-header__main {
+      padding: 15px 20px;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .custom-header__nav {
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .custom-header__utility {
+      gap: 20px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="custom-header">
+  {%- if section.settings.announcement_text != blank -%}
+    <div class="custom-header__announcement-bar">
+      {{ section.settings.announcement_text }}
+    </div>
+  {%- endif -%}
+
+  <div class="custom-header__main">
+    <!-- Logo -->
+    <a href="{{ routes.root_url }}" class="custom-header__logo">
+      <span class="custom-header__logo-icon">M</span>
+      <span class="custom-header__logo-text">Maison Veil</span>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="custom-header__nav">
+      {%- for link in section.settings.menu.links -%}
+        <a href="{{ link.url }}" class="custom-header__nav-link">
+          {{ link.title }}
+        </a>
+      {%- endfor -%}
+    </nav>
+
+    <!-- Utility Links -->
+    <div class="custom-header__utility">
+      {%- if shop.customer_accounts_enabled -%}
+        <a href="{{ routes.account_url }}" class="custom-header__utility-link">
+          account
+        </a>
+      {%- endif -%}
+      
+      <a href="{{ routes.cart_url }}" class="custom-header__utility-link">
+        cart
+      </a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement Text",
+      "default": "Free shipping on orders over $50"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Header"
+    }
+  ]
+}
+{% endschema %} 
